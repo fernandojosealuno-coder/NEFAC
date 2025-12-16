@@ -4,15 +4,13 @@ export default function Noticias() {
   const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const base = import.meta.env.BASE_URL || "/";
 
   useEffect(() => {
     let mounted = true;
 
     async function fetchData() {
-      // Tenta buscar /api/instagram — mas lê como texto e tenta JSON.parse (defensivo)
       try {
-        // Em dev local (localhost) normalmente não há função serverless rodando,
-        // então ainda vamos tentar, mas tratamos respostas inválidas.
         const res = await fetch("/api/instagram");
         if (res.ok) {
           const txt = await res.text();
@@ -24,7 +22,6 @@ export default function Noticias() {
               return;
             }
           } catch (parseErr) {
-            // resposta não é JSON (por exemplo: Vite está servindo o arquivo .js em vez de um endpoint)
             console.warn("Resposta de /api/instagram não é JSON — usando arquivo local. Erro parse:", parseErr.message);
           }
         } else {
@@ -34,9 +31,7 @@ export default function Noticias() {
         console.warn("Erro ao buscar /api/instagram:", e.message || e);
       }
 
-      // Fallback para arquivo local (sempre disponível no projeto)
       try {
-        // Preferimos instagram_with_local.json se você tiver baixado imagens locais (veja script)
         const prefer = await import("../data/instagram_with_local.json").catch(() => null);
         const localPrefer = prefer ? (prefer.default || prefer) : null;
         if (localPrefer && localPrefer.length) {
@@ -69,7 +64,6 @@ export default function Noticias() {
     const arr = Array.isArray(raw) ? raw : (raw.items || []);
     return arr.map((item, idx) => {
       const image =
-        // Prioriza imagem local caso você a tenha baixado (localImage criado pelo script)
         item.localImage ||
         item.displayUrl ||
         (Array.isArray(item.images) && item.images[0]) ||
@@ -91,6 +85,15 @@ export default function Noticias() {
     }).filter(p => p.image);
   }
 
+  function resolveImageUrl(url) {
+    if (!url) return url;
+    // se começar com "/" (caminho local), prefixa com base do Vite
+    if (url.startsWith("/")) {
+      return `${base}${url.replace(/^\//, "")}`;
+    }
+    return url;
+  }
+
   if (loading) return <main style={{ padding: 20 }}><p>Carregando notícias...</p></main>;
   if (error) return <main style={{ padding: 20 }}><p>{error}</p></main>;
   if (!posts || posts.length === 0) return <main style={{ padding: 20 }}><p>Nenhuma notícia encontrada.</p></main>;
@@ -110,7 +113,7 @@ export default function Noticias() {
           {posts.map(p => (
             <article key={p.id} style={{ background: "#fff", borderRadius: 8, overflow: "hidden", boxShadow: "0 6px 16px rgba(0,0,0,0.06)" }}>
               <a href={p.postUrl || "#"} target="_blank" rel="noopener noreferrer" style={{ display: "block" }}>
-                <img src={p.image} alt={p.alt || "Imagem do Instagram"} style={{ width: "100%", height: 200, objectFit: "cover" }} />
+                <img src={resolveImageUrl(p.image)} alt={p.alt || "Imagem do Instagram"} style={{ width: "100%", height: 200, objectFit: "cover" }} />
               </a>
               <div style={{ padding: 12, color: "#154360" }}>
                 <p style={{ margin: 0 }}>{p.caption}</p>

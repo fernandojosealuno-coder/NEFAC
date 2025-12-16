@@ -2,6 +2,13 @@ import React from "react";
 import { dadosEquipe } from "../data/dadosEquipe";
 
 export default function Equipe() {
+  const base = import.meta.env.BASE_URL || "/";
+
+  const resolve = (url) => {
+    if (!url) return url;
+    return url.startsWith("http") ? url : `${base}${url.replace(/^\//, "")}`;
+  };
+
   return (
     <main>
       <section id="equipe-nefac">
@@ -10,7 +17,7 @@ export default function Equipe() {
         <div className="equipe-container">
           {dadosEquipe.map((m, i) => (
             <div className="membro" key={i}>
-              <img src={m.foto} alt={m.altFoto} />
+              <img src={resolve(m.foto)} alt={m.altFoto} />
               <h3>{m.nome}</h3>
               <p><strong>{m.cargo}</strong><br />{m.descricao}</p>
             </div>

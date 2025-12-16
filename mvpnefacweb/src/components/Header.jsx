@@ -9,6 +9,9 @@ import Navbar from "./Navbar";
   - nav no canto superior direito (Navbar)
 */
 export default function Header() {
+  // pega base configurada no vite (para GitHub Pages o base normalmente é '/RepoName/')
+  const base = import.meta.env.BASE_URL || "/";
+
   return (
     <header className="site-header header--image" role="banner">
       <div className="header-top">
@@ -19,7 +22,7 @@ export default function Header() {
       <div className="header-inner">
         <div className="hero-box" aria-hidden={false}>
           <div className="logo">
-            <img src="/fotos/LOGO.jpg" alt="Logotipo NEFAC" />
+            <img src={`${base}fotos/LOGO.jpg`} alt="Logotipo NEFAC" />
           </div>
 
           <div className="hero-text">
