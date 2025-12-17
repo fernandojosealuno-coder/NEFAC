@@ -7,7 +7,7 @@ import "./styles/style.css";
 const root = createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/MVPemFormadeReact">
       <App />
     </BrowserRouter>
   </React.StrictMode>
