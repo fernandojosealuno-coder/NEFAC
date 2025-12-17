@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - copilot/fix-github-pages-errors
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
