@@ -43,11 +43,16 @@ O arquivo `.nojekyll` na pasta `public` garante que o GitHub Pages não processe
 
 ### Configuração do GitHub Pages
 
-Para configurar o GitHub Pages no repositório:
+**IMPORTANTE:** Você precisa configurar o repositório para usar GitHub Actions antes que o deploy funcione:
 
-1. Vá em **Settings** → **Pages**
-2. Em **Source**, selecione **GitHub Actions**
-3. O deploy será feito automaticamente pelo workflow
+1. Vá em **Settings** → **Pages** no repositório GitHub
+2. Em **Build and deployment**:
+   - Na seção **Source**, selecione **GitHub Actions** (não "Deploy from a branch")
+3. Salve as configurações
+4. Faça o merge deste PR para a branch `main`
+5. O workflow será executado automaticamente e o site estará disponível em poucos minutos
+
+⚠️ **Sem esta configuração, o workflow não conseguirá fazer o deploy e mostrará erro "action_required"**
 
 ## 🛠️ Desenvolvimento Local
 
@@ -107,6 +112,17 @@ MVPemFormadeReact/
 
 ## 🔧 Solução de Problemas
 
+### Workflow com status "action_required"
+
+Se o workflow do GitHub Actions mostrar o status "action_required":
+
+1. **Configure GitHub Pages corretamente**:
+   - Vá em **Settings** → **Pages**
+   - Em **Build and deployment** → **Source**, selecione **GitHub Actions**
+   - NÃO use "Deploy from a branch"
+2. **Confirme as permissões**: O repositório deve permitir GitHub Actions com permissões de escrita
+3. **Execute novamente o workflow**: Após a configuração, vá em Actions e execute manualmente
+
 ### Erro 404 no GitHub Pages
 
 Se você encontrar o erro "File not found" no GitHub Pages:
@@ -116,6 +132,7 @@ Se você encontrar o erro "File not found" no GitHub Pages:
 3. **Confirme que o arquivo .nojekyll existe** na pasta `public`
 4. **Verifique se o GitHub Actions está habilitado** em Settings → Pages → Source → GitHub Actions
 5. **Aguarde o workflow completar**: Pode levar alguns minutos após o push
+6. **Verifique se o PR foi mergeado**: As correções só serão aplicadas após merge para `main`
 
 ### Assets não carregam
 
