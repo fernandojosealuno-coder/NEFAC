@@ -41,11 +41,12 @@ Adicionado na pasta `public` para evitar que o GitHub Pages processe a aplicaç�
 2. Clique em **Settings** (Configurações)
 3. No menu lateral, clique em **Pages**
 4. Na seção **Build and deployment**:
+   - Clique no menu dropdown ao lado de **Source**
    - **Source**: Selecione **GitHub Actions**
    - ⚠️ NÃO selecione "Deploy from a branch"
 5. Salve as configurações
 
-![Configuração do GitHub Pages](https://docs.github.com/assets/cb-49110/mw-1440/images/help/pages/select-github-actions-source.webp)
+> **Nota**: Se você não vir a opção "GitHub Actions", verifique se o repositório tem permissões de GitHub Actions habilitadas em Settings → Actions → General.
 
 ### Passo 2: Fazer Merge do PR
 
