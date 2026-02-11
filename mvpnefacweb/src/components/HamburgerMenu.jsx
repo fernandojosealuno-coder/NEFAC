@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
 import { navLinks } from "../data/globalConfig";
 
 export default function HamburgerMenu() {
@@ -17,11 +18,18 @@ export default function HamburgerMenu() {
   const menu = (
     <>
       <nav className={`mobile-menu${open ? " menu-open" : ""}`} aria-hidden={!open}>
-        <button className="close-btn" aria-label="Fechar Menu" onClick={() => setOpen(false)}>X</button>
-        {navLinks.map(link => (
-          <a key={link.label} href={link.href} onClick={() => setOpen(false)}>
+        <button
+          className="close-btn"
+          aria-label="Fechar Menu"
+          onClick={() => setOpen(false)}
+        >
+          X
+        </button>
+
+        {navLinks.map((link) => (
+          <Link key={link.label} to={link.href} onClick={() => setOpen(false)}>
             {link.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
