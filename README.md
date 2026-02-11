@@ -1,6 +1,6 @@
 # MVP em Forma de React - NEFAC
 
-Aplicação web desenvolvida em React + Vite para o NEFAC (Núcleo de Estudos em Filosofia Antiga e Contemporânea).
+Aplicação web desenvolvida em React + Vite para o NEFAC (Núcleo de Estudos em Família e Cronicidade).
 
 ## 🚀 Deploy no GitHub Pages
 
@@ -144,4 +144,4 @@ Se imagens ou estilos não carregarem:
 
 ## 📝 Licença
 
-Este projeto é mantido pelo NEFAC - Núcleo de Estudos em Filosofia Antiga e Contemporânea.
+Este projeto é mantido pelo NEFAC - Núcleo de Estudos em Família e Cronicidade.
