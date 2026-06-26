@@ -37,6 +37,8 @@ jobs:
 
       - name: Build
         run: cd mvpnefacweb && npm run build
+        env:
+          VITE_BASE_PATH: /MVPemFormadeReact/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
