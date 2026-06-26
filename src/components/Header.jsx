@@ -2,7 +2,14 @@ import React from "react";
 import HamburgerMenu from "./HamburgerMenu";
 import Navbar from "./Navbar";
 
+/*
+  Header estruturado para ter:
+  - background (opcional) via classe header--image
+  - caixa central clara (hero-box) com logo + título
+  - nav no canto superior direito (Navbar)
+*/
 export default function Header() {
+  // pega base configurada no vite (para GitHub Pages o base normalmente é '/RepoName/')
   const base = import.meta.env.BASE_URL || "/";
 
   return (
@@ -13,7 +20,7 @@ export default function Header() {
       </div>
 
       <div className="header-inner">
-        <div className="hero-box">
+        <div className="hero-box" aria-hidden={false}>
           <div className="logo">
             <img src={`${base}fotos/LOGO.jpg`} alt="Logotipo NEFAC" />
           </div>
