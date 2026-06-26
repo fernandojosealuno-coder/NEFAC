@@ -5,9 +5,11 @@ import App from "./App";
 import "./styles/style.css";
 
 const root = createRoot(document.getElementById("root"));
+const routerBase = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/MVPemFormadeReact">
+    <BrowserRouter basename={routerBase}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
