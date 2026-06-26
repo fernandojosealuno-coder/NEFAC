@@ -1,0 +1,443 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  /* NOVO: Fundo muito claro */
+  background-color: #f8f9f9;
+  /* NOVO: Cor de texto principal (Azul Médio) */
+  color: #2874a6;
+  font-family: "Cabin", sans-serif;
+  font-weight: 400;
+  /* Adicionado para prevenir scroll horizontal ao abrir o menu */
+  overflow-x: hidden;
+}
+
+main {
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+h1 {
+  text-align: center;
+  padding: 0%;
+  border-radius: 2px;
+}
+h2 {
+  /* NOVO: Azul Marinho para Títulos */
+  color: #154360;
+  font-size: 1.8rem;
+  /* NOVO: Borda Azul Claro */
+  border-bottom: 2px solid #a9cce3;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+/* O bloco `footer` foi integrado ao `.footer` para maior controle de cor */
+/* ==== ESTILO ATUALIZADO DOS LINKS DO RODAPÉ ==== */
+.footer a {
+  text-decoration: none;
+  /* NOVO: Acento Azul Claro para links */
+  color: #a9cce3;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  /* NOVO: Acento mais claro no hover */
+  color: #f8f9f9;
+}
+/* ===== AJUSTE DO CABEÇALHO ===== */
+
+header {
+  background-image: linear-gradient(
+      /* NOVO: Overlay Azul Marinho 80% (rgb: 21, 67, 96)*/
+        rgba(21, 67, 96, 0.8),
+      rgba(21, 67, 96, 0.8)
+    ),
+    url("");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  /* NOVO: Cor clara para contraste */
+  color: #f8f9f9;
+  padding: 0;
+}
+
+.logo.flex2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.logo img {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
+}
+
+.tituloo span {
+  font-size: 3rem;
+  font-weight: 700;
+  /* NOVO: Cor clara para contraste */
+  color: #f8f9f9;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1.5px;
+}
+
+.header-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-link:hover {
+  opacity: 0.9;
+}
+
+/* --- Estilo para a navegação DESKTOP (no canto superior direito) --- */
+.top-nav {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  padding: 8px 15px;
+  /* ALTERADO: Fundo Azul Marinho Transparente (50% opacidade) */
+  background-color: rgba(21, 67, 96, 0.5);
+  border-radius: 5px;
+  /* Ajustando a sombra para ser mais sutil */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  /* Adicionado para controle de visibilidade em mobile */
+  display: block;
+}
+
+.top-nav a {
+  text-decoration: none;
+  /* ALTERADO: Cor clara para alto contraste com o fundo escuro/transparente */
+  color: #f8f9f9;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.top-nav a:hover {
+  /* NOVO: Azul Claro no hover */
+  color: #a9cce3;
+}
+
+section p {
+  text-align: justify;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+section ul {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+
+/* ==== SEÇÃO NOSSA EQUIPE ==== */
+
+.equipe-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.membro {
+  width: 250px;
+  background-color: #fff;
+  /* NOVO: Borda Azul Claro */
+  border: 2px solid #a9cce3;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.membro:hover {
+  transform: translateY(-5px);
+}
+
+.membro img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.membro h3 {
+  /* NOVO: Azul Marinho */
+  color: #154360;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.membro p {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ==== SEÇÃO GALERIA DE FOTOS ==== */
+
+.galeria {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.galeria figure {
+  width: 280px;
+  margin: 0;
+  padding: 0;
+  /* NOVO: Borda Azul Claro */
+  border: 2px solid #a9cce3;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.galeria figure:hover {
+  transform: scale(1.03);
+}
+
+.galeria figure img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: none;
+  border-radius: 0;
+}
+
+.galeria figcaption {
+  /* NOVO: Fundo quase branco */
+  background-color: #f8f9f9;
+  /* NOVO: Azul Marinho */
+  color: #154360;
+  padding: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  /* NOVO: Borda Azul Claro */
+  border-top: 1px solid #a9cce3;
+  line-height: 1.4;
+}
+
+/* ==== RODAPÉ ==== */
+.flex2 {
+  display: flex;
+  align-items: center;
+}
+.footer-section img {
+  width: 2rem;
+}
+.footer {
+  /* NOVO: Fundo Azul Marinho */
+  background-color: #154360;
+  /* NOVO: Texto Claro */
+  color: #f8f9f9;
+  font-family: Arial, sans-serif;
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.footer-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.footer-section a {
+  /* NOVO: Cor clara para links do rodapé */
+  color: #f8f9f9;
+}
+
+.footer-section.center {
+  flex: 1;
+  justify-content: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  /* NOVO: Borda Azul Médio */
+  border-top: 1px solid #2874a6;
+  padding-top: 8px;
+}
+
+/* ==== ESTILOS DO MENU HAMBURGER E LATERAL ==== */
+
+/* Botão Hamburger (Escondido por padrão no desktop) */
+.hamburger {
+  /* Escondido por padrão */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  color: #f8f9f9;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 101;
+}
+
+/* Menu Lateral (Escondido fora da tela) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #154360;
+  transform: translateX(-100%); /* Oculto à esquerda */
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #f8f9f9;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(248, 249, 249, 0.1);
+}
+
+.mobile-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #a9cce3;
+}
+
+/* Botão 'X' para fechar */
+.mobile-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #f8f9f9;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  padding: 5px;
+  font-weight: bold;
+}
+
+/* Classe ativada pelo JavaScript para abrir o menu */
+body.menu-open .mobile-menu {
+  transform: translateX(0);
+}
+
+/* Move o conteúdo principal para a direita */
+body.menu-open main,
+body.menu-open header,
+body.menu-open footer {
+  transform: translateX(250px);
+  transition: transform 0.3s ease-in-out;
+}
+
+body.menu-open {
+  overflow-y: hidden;
+}
+
+/* ===== RESPONSIVIDADE (Mobile) ===== */
+@media (max-width: 900px) {
+  main {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    height: 280px;
+    padding: 1rem;
+  }
+
+  .logo img {
+    width: 120px;
+    margin: 0 auto;
+  }
+
+  .tituloo span {
+    font-size: 2rem;
+  }
+
+  .logo.flex2 {
+    flex-direction: column;
+    text-align: center;
+  }
+  /* CORREÇÃO CRÍTICA: Oculta o menu desktop em telas menores */
+  .top-nav {
+    display: none;
+  }
+  /* MOSTRA o botão hambúrguer em telas menores */
+  .hamburger {
+    display: block;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+  .footer-section {
+    justify-content: center;
+  }
+  .footer-section.center {
+    flex: 0;
+  }
+  .equipe-container,
+  .galeria {
+    gap: 1rem;
+  }
+  .membro,
+  .galeria figure {
+    width: 90%;
+    max-width: 350px;
+  }
+}
