@@ -61,24 +61,45 @@ h2 {
 /* ===== AJUSTE DO CABEÇALHO ===== */
 
 header {
-  background-image: linear-gradient(
-      /* NOVO: Overlay Azul Marinho 80% (rgb: 21, 67, 96)*/
-        rgba(21, 67, 96, 0.8),
-      rgba(21, 67, 96, 0.8)
-    ),
-    url("");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 350px;
+  min-height: 230px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
-  /* NOVO: Cor clara para contraste */
-  color: #f8f9f9;
-  padding: 0;
+  color: #154360;
+  padding: 4.1rem 1.25rem 2rem;
+  background:
+    linear-gradient(rgba(21, 67, 96, 0.82), rgba(21, 67, 96, 0.82)),
+    linear-gradient(135deg, #426f86 0%, #315d73 52%, #23485c 100%);
+  box-shadow: inset 0 6px 0 rgba(67, 43, 58, 0.5);
+}
+
+.header-top {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.header-top > * {
+  pointer-events: auto;
+}
+
+.header-inner {
+  width: min(1160px, 100%);
+}
+
+.hero-box {
+  width: 100%;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 2.4rem);
+  padding: clamp(0.85rem, 2vw, 1.25rem) clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(21, 67, 96, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 18px 42px rgba(8, 30, 43, 0.38);
 }
 
 .logo.flex2 {
@@ -89,11 +110,36 @@ header {
 }
 
 .logo img {
-  width: 160px;
-  height: auto;
-  border-radius: 8px;
-  margin-right: 20px;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
+  width: 120px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-right: 0;
+  background: #ffffff;
+  box-shadow: 0 12px 24px rgba(8, 30, 43, 0.28);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.hero-text h1 {
+  color: #0b4168;
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.hero-sub {
+  margin-top: 0.55rem;
+  color: #4f5963;
+  font-size: clamp(0.98rem, 1.5vw, 1.12rem);
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: center;
 }
 
 .tituloo span {
@@ -123,14 +169,13 @@ header {
 /* --- Estilo para a navegação DESKTOP (no canto superior direito) --- */
 .top-nav {
   position: absolute;
-  top: 15px;
-  right: 30px;
-  padding: 8px 15px;
-  /* ALTERADO: Fundo Azul Marinho Transparente (50% opacidade) */
-  background-color: rgba(21, 67, 96, 0.5);
+  top: 24px;
+  right: 36px;
+  padding: 0.45rem 0.8rem;
+  background-color: rgba(21, 67, 96, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 5px;
-  /* Ajustando a sombra para ser mais sutil */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 14px rgba(8, 30, 43, 0.32);
   z-index: 100;
   /* Adicionado para controle de visibilidade em mobile */
   display: block;
@@ -310,10 +355,11 @@ section ul {
 
 /* Botão Hamburger (Escondido por padrão no desktop) */
 .hamburger {
+  display: block;
   /* Escondido por padrão */
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 34px;
+  left: 28px;
   background: transparent;
   border: none;
   color: #f8f9f9;
@@ -396,13 +442,32 @@ body.menu-open {
 }
 @media (max-width: 768px) {
   header {
-    height: 280px;
+    min-height: auto;
+    padding: 4.75rem 0.75rem 1rem;
+  }
+
+  .hero-box {
+    min-height: 0;
+    flex-direction: column;
+    gap: 0.85rem;
     padding: 1rem;
   }
 
   .logo img {
-    width: 120px;
+    width: 96px;
     margin: 0 auto;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 1.45rem;
+  }
+
+  .hero-sub {
+    font-size: 0.96rem;
   }
 
   .tituloo span {

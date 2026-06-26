@@ -7,22 +7,16 @@ export default function HamburgerMenu() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    // adiciona classe para deslocamento do main/footer (se você quiser esse efeito)
     if (open) document.body.classList.add("menu-open");
     else document.body.classList.remove("menu-open");
 
     return () => document.body.classList.remove("menu-open");
   }, [open]);
 
-  // JSX do menu (vai para document.body via portal)
   const menu = (
     <>
       <nav className={`mobile-menu${open ? " menu-open" : ""}`} aria-hidden={!open}>
-        <button
-          className="close-btn"
-          aria-label="Fechar Menu"
-          onClick={() => setOpen(false)}
-        >
+        <button className="close-btn" aria-label="Fechar Menu" onClick={() => setOpen(false)}>
           X
         </button>
 
