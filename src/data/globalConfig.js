@@ -2,7 +2,7 @@ export const navLinks = [
   { href: "/", label: "Início" },
   { href: "/equipe", label: "Nossa Equipe" },
   { href: "/galeria", label: "Galeria de Fotos" },
-  { href: "/noticias", label: "Notícias" }, // <-- adicionado
+  { href: "/noticias", label: "Notícias" },
   { href: "/contato", label: "Contato" },
 ];
 
